@@ -3,11 +3,41 @@ import input_helper as ih
 import bg_helper as bh
 from glob import glob
 from time import sleep
+try:
+    from yt_helper import FILES, get_real_basename
+    import os.path
+except ImportError:
+    FILES = None
 
 
 AUDIO_EXTENSIONS = (
     '.mp3'
 )
+
+
+def add_current_to_FILES():
+    """Add the currently playing file to FILES collection from yt-helper
+
+    Requires yt-helper and redis-helper
+    """
+    if FILES is None:
+        return
+
+    path = get_info_dict().get('file')
+    if path is None:
+        return
+
+    data = {
+        'audio': True,
+        'dirname': os.path.dirname(path),
+        'basename': get_real_basename(path)
+    }
+    try:
+        FILES.add(**data)
+    except AssertionError:
+        hash_id = FILES.get_hash_id_for_unique_value(data['basename'])
+        data.pop('basename')
+        FILES.update(hash_id, **data)
 
 
 def _start_jack():
@@ -62,6 +92,8 @@ def info_string(template='{currenttime} ({currentsec}) of {totaltime} into {file
         return ''
     elif current_info.get('state') == 'STOP':
         return ''
+
+    add_current_to_FILES()
     return make_string(current_info)
 
 
