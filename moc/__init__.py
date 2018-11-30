@@ -42,7 +42,10 @@ def add_current_to_FILES():
 
 def _start_jack():
     """Start jackd if on a Mac and it's not running"""
-    bh.SimpleBackgroundTask('[[ $(uname) == "Darwin" ]] && [[ -z "$(ps aux | grep jackd | grep -v grep)" ]] && jackd -d coreaudio &>/dev/null')
+    bh.SimpleBackgroundTask(
+        '[[ $(uname) == "Darwin" ]] && [[ -z "$(ps aux | grep jackd | grep -v grep)" ]] '
+        '&& (jackd -d coreaudio &>/dev/null || jackd -d coreaudio -r 48000 &>/dev/null)'
+    )
 
 
 def rm_pid_and_kill_jack():
