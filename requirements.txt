@@ -1,7 +1,2 @@
 input-helper
 bg-helper
-
-# For development
-ipython
-pdbpp
-pytest
