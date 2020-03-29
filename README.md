@@ -10,7 +10,7 @@ or
 % brew install moc
 ```
 
-Install with `pip`
+Then install this package with `pip`
 
 ```
 % pip3 install mocp
@@ -31,4 +31,13 @@ In [5]: moc.go(500)             # jump to particular point in current track
 
 In [6]: moc.info_string()
 Out[6]: '08:21 (501) of 95:35 into /home/user/music-dir/blah-thing/file.mp3'
+```
+
+## Getting the C source
+
+> MOC is written is written in C and hosted in an SVN repo (not Git). See `man
+> git-svn`
+
+```
+$ git svn clone svn://svn.daper.net/moc/trunk moc
 ```
