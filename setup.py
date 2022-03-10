@@ -3,8 +3,12 @@
 
 from setuptools import setup, find_packages
 
+
 with open('README.rst', 'r') as fp:
     long_description = fp.read()
+
+with open('requirements.txt', 'r') as fp:
+    requirements = fp.read().splitlines()
 
 setup(
     name='mocp',
@@ -18,10 +22,7 @@ setup(
     download_url='https://github.com/kenjyco/mocp/tarball/v0.4.7',
     packages=find_packages(),
     include_package_data=True,
-    install_requires=[
-        'bg-helper',
-        'input-helper',
-    ],
+    install_requires=requirements,
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Environment :: Console',
