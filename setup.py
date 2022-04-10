@@ -12,14 +12,14 @@ with open('requirements.txt', 'r') as fp:
 
 setup(
     name='mocp',
-    version='0.4.7',
+    version='0.4.8',
     description='A Python library to control the MOC (music on console) audio player',
     long_description=long_description,
     author='Ken',
     author_email='kenjyco@gmail.com',
     license='MIT',
     url='https://github.com/kenjyco/mocp',
-    download_url='https://github.com/kenjyco/mocp/tarball/v0.4.7',
+    download_url='https://github.com/kenjyco/mocp/tarball/v0.4.8',
     packages=find_packages(),
     include_package_data=True,
     install_requires=requirements,
