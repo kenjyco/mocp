@@ -96,7 +96,7 @@ def info_string(template='{currenttime} ({currentsec}) of {totaltime} into {file
     elif current_info.get('state') == 'STOP':
         return ''
 
-    # add_current_to_FILES()
+    add_current_to_FILES()
     return make_string(current_info)
 
 
