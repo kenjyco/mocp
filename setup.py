@@ -10,6 +10,9 @@ with open('README.rst', 'r') as fp:
 with open('requirements.txt', 'r') as fp:
     requirements = fp.read().splitlines()
 
+with open('requirements-extras.txt', 'r') as fp:
+    requirements_extras = fp.read().splitlines()
+
 setup(
     name='mocp',
     version='0.4.8',
@@ -23,6 +26,9 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     install_requires=requirements,
+    extras_require={
+        'extras': requirements_extras,
+    },
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Environment :: Console',

@@ -16,6 +16,24 @@ Then install this package with `pip`
 % pip3 install mocp
 ```
 
+## Optional Installs
+
+### redis-helper and yt-helper
+
+If redis-helper and yt-helper are installed, the FILES collection will be
+updated with the basename of the the current playing file whenever
+`moc.info_string()` is called
+
+Install with `pip`
+
+```
+% pip3 install "yt-helper[redis-helper]"
+
+or
+
+% pip3 install "mocp[extras]"
+```
+
 ## Usage
 
 ```python
