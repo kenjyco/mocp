@@ -6,7 +6,7 @@ from time import sleep
 try:
     from yt_helper import FILES, get_real_basename
     import os.path
-except ImportError:
+except (ImportError, ModuleNotFoundError):
     FILES = None
 
 
