@@ -4,6 +4,11 @@ import bg_helper as bh
 from glob import glob
 from time import sleep
 try:
+    ModuleNotFoundError
+except NameError:
+    class ModuleNotFoundError(ImportError):
+        pass
+try:
     from yt_helper import FILES, get_real_basename
     import os.path
 except (ImportError, ModuleNotFoundError):
